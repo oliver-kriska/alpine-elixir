@@ -1,4 +1,4 @@
-FROM payout1/alpine-erlang:23.2.2
+FROM payout1/alpine-erlang:23.2.5
 
 
 # Important!  Update this no-op ENV variable when this Dockerfile
