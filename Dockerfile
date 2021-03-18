@@ -6,7 +6,7 @@ FROM payout1/alpine-erlang:23.2.7
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
 ENV REFRESHED_AT=2021-01-22 \
-  ELIXIR_VERSION=v1.11.3 \
+  ELIXIR_VERSION=v1.11.4 \
   MIX_HOME=/opt/mix \
   HEX_HOME=/opt/hex
 
