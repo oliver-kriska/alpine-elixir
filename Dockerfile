@@ -16,6 +16,8 @@ RUN \
   apk --no-cache --update upgrade && \
   apk add --no-cache --update --virtual .elixir-build \
   make && \
+  apk update && \
+  apk upgrade && \
   apk add --no-cache --update \
   git && \
   git clone https://github.com/elixir-lang/elixir --depth 1 --branch $ELIXIR_VERSION && \
