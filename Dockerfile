@@ -13,15 +13,14 @@ ENV REFRESHED_AT=2021-05-20 \
 WORKDIR /tmp/elixir-build
 
 RUN \
-  apk add --no-cache --update-cache \
-  git \
-  make && \
   apk update && \
   apk upgrade && \
-  apk add --no-cache --update \
+  apk add --no-cache --update-cache \
+  git \
+  make \
   libstdc++ \
   libgcc \
-  git && \
+  && \
   git clone https://github.com/elixir-lang/elixir --depth 1 --branch $ELIXIR_VERSION && \
   cd elixir && \
   make && make install && \
