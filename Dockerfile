@@ -13,8 +13,8 @@ ENV REFRESHED_AT=2021-05-20 \
 WORKDIR /tmp/elixir-build
 
 RUN \
-  apk --no-cache --update upgrade && \
-  apk add --no-cache --update --virtual .elixir-build \
+  apk add --no-cache --update-cache \
+  git \
   make && \
   apk update && \
   apk upgrade && \
@@ -28,12 +28,11 @@ RUN \
   mix local.hex --force && \
   mix local.rebar --force && \
   cd $HOME && \
-  rm -rf /tmp/elixir-build && \
-  apk del --no-cache .elixir-build
+  rm -rf /tmp/elixir-build
 
 WORKDIR ${HOME}
 
 # Always install latest versions of Hex and Rebar
 ONBUILD RUN mix do local.hex --force, local.rebar --force
 
-CMD ["/bin/sh"]
+CMD ["bash"]
