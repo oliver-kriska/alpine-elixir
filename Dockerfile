@@ -1,12 +1,12 @@
-FROM payout1/alpine-erlang:23.3
+FROM payout1/alpine-erlang:24.0
 
 
 # Important!  Update this no-op ENV variable when this Dockerfile
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2021-01-22 \
-  ELIXIR_VERSION=v1.11.4 \
+ENV REFRESHED_AT=2021-05-20 \
+  ELIXIR_VERSION=v1.12.0 \
   MIX_HOME=/opt/mix \
   HEX_HOME=/opt/hex
 
@@ -19,6 +19,8 @@ RUN \
   apk update && \
   apk upgrade && \
   apk add --no-cache --update \
+  libstdc++ \
+  libgcc \
   git && \
   git clone https://github.com/elixir-lang/elixir --depth 1 --branch $ELIXIR_VERSION && \
   cd elixir && \
